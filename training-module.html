@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITSolutions Security Training Module</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .logo {
+            max-width: 100px;
+            height: auto;
+        }
+        h1 {
+            color: #431F87;
+            margin-top: 0;
+        }
+        h2 {
+            color: #431F87;
+            border-left: 4px solid #00A896;
+            padding-left: 10px;
+        }
+        .module-container {
+            margin: 20px 0;
+        }
+        .module-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .section-1 {
+            background-color: #f7f2ff;
+            border-left: 4px solid #431F87;
+        }
+        .section-2 {
+            background-color: #e6fff8;
+            border-left: 4px solid #00A896;
+        }
+        .section-3 {
+            background-color: #fff5ec;
+            border-left: 4px solid #FAB178;
+        }
+        .section-4 {
+            background-color: #faf5f0;
+            border-left: 4px solid #DDCCB4;
+        }
+        .question-container {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #00A896;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #008e7e;
+        }
+        .result {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            display: none;
+        }
+        .correct {
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+        }
+        .incorrect {
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            color: #a94442;
+        }
+        .completion-certificate {
+            text-align: center;
+            border: 2px solid #431F87;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #431F87;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="main-logo.png" alt="ITSolutions Logo" class="logo">
+            <h1>Phishing Awareness Training</h1>
+            <p>This short training module will help you spot and avoid falling victim to phishing attempts.</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </header>
+
+        <div id="module-content">
+            <!-- Name Input Section -->
+            <div id="section-name" class="module-section section-1">
+                <h2>Welcome to Security Awareness Training</h2>
+                <p>Please enter your name to begin the training:</p>
+                <div style="margin: 20px 0;">
+                    <label for="employee-name">Full Name:</label>
+                    <input type="text" id="employee-name" style="padding: 8px; margin-left: 10px; width: 250px;" placeholder="Enter your full name">
+                </div>
+                <button class="btn" onclick="startTraining()">Start Training</button>
+            </div>
+
+            <!-- Introduction Section -->
+            <div id="section-intro" class="module-section section-1 hidden">
+                <h2>Introduction to Phishing Threats</h2>
+                <p>Phishing attacks are one of the most common security threats facing organisations today. They attempt to trick you into revealing sensitive information or installing malicious software.</p>
+                <p>In this brief training, you'll learn:</p>
+                <ul>
+                    <li>How to identify suspicious emails</li>
+                    <li>Common phishing tactics to watch out for</li>
+                    <li>What to do if you suspect a phishing attempt</li>
+                    <li>Best practices for protecting your accounts</li>
+                </ul>
+                <button class="btn" onclick="nextSection('section-intro', 'section-1')">Continue</button>
+            </div>
+
+            <!-- Section 1: Red Flags -->
+            <div id="section-1" class="module-section section-2 hidden">
+                <h2>Red Flags in Phishing Emails</h2>
+                <p>Here are key warning signs to look for in suspicious emails:</p>
+                <ul>
+                    <li><strong>Urgent language</strong> - Messages that create pressure to act quickly</li>
+                    <li><strong>Generic greetings</strong> - "Dear User" instead of your name</li>
+                    <li><strong>Suspicious sender email</strong> - Addresses that mimic legitimate companies but with slight variations</li>
+                    <li><strong>Grammar and spelling errors</strong> - Professional organisations typically proofread communications</li>
+                    <li><strong>Suspicious links</strong> - URLs that don't match the claimed organisation apparently represented</li>
+                    <li><strong>Unexpected attachments</strong> - Especially executable files (.exe, .zip, etc.)</li>
+                    <li><strong>Requests for sensitive information</strong> - Legitimate organisations rarely ask for passwords via email</li>
+                </ul>
+                <button class="btn" onclick="nextSection('section-1', 'section-2')">Continue</button>
+            </div>
+
+            <!-- Section 2: Best Practices -->
+            <div id="section-2" class="module-section section-3 hidden">
+                <h2>Best Practices for Email Security</h2>
+                <p>Follow these guidelines to protect yourself from phishing attempts:</p>
+                <ul>
+                    <li><strong>Verify the sender</strong> - Check the full email address, not just the display name</li>
+                    <li><strong>Hover before clicking</strong> - Place your cursor over links to see the actual URL destination</li>
+                    <li><strong>Be skeptical of urgency</strong> - Take time to verify requests that demand immediate action</li>
+                    <li><strong>Check for personalisation</strong> - Legitimate communications usually include your name</li>
+                    <li><strong>Use multi-factor authentication</strong> - This provides an extra layer of protection</li>
+                    <li><strong>Update your software</strong> - Keep your systems and security software up-to-date</li>
+                    <li><strong>When in doubt, reach out</strong> - Verify suspicious requests through official channels</li>
+                </ul>
+                <button class="btn" onclick="nextSection('section-2', 'section-3')">Continue</button>
+            </div>
+
+            <!-- Section 3: What to Do -->
+            <div id="section-3" class="module-section section-4 hidden">
+                <h2>What to Do If You Suspect a Phishing Attempt</h2>
+                <p>If you receive a suspicious email, follow these steps:</p>
+                <ol>
+                    <li><strong>Don't click on links or download attachments</strong></li>
+                    <li><strong>Report the email</strong> to the IT Security team at security@itsolutions.com</li>
+                    <li><strong>Delete the email</strong> from your inbox</li>
+                    <li><strong>If you've already clicked a link or shared information:</strong>
+                        <ul>
+                            <li>Change your passwords immediately</li>
+                            <li>Contact IT Security right away</li>
+                            <li>Monitor your accounts for suspicious activity</li>
+                        </ul>
+                    </li>
+                </ol>
+                <button class="btn" onclick="nextSection('section-3', 'quiz')">Take the Quiz</button>
+            </div>
+
+            <!-- Quiz Section -->
+            <div id="quiz" class="hidden">
+                <h2>Knowledge Check</h2>
+                <p>Answer these questions to test your understanding of phishing awareness.</p>
+
+                <!-- Question 1 -->
+                <div id="question-1" class="question-container">
+                    <h3>Question 1:</h3>
+                    <p>Which of the following is a red flag for a potential phishing email?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="a"> An email from your manager using your full name</label>
+                        <label><input type="radio" name="q1" value="b"> An urgent request to verify your account credentials</label>
+                        <label><input type="radio" name="q1" value="c"> A company newsletter sent to all employees</label>
+                        <label><input type="radio" name="q1" value="d"> A scheduled meeting invitation from a colleague</label>
+                    </div>
+                    <div id="result-1" class="result"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div id="question-2" class="question-container hidden">
+                    <h3>Question 2:</h3>
+                    <p>What should you do if you receive a suspicious email?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="a"> Reply to the sender to confirm if it's legitimate</label>
+                        <label><input type="radio" name="q2" value="b"> Click the link but don't enter any information</label>
+                        <label><input type="radio" name="q2" value="c"> Report the email to IT Security and delete it</label>
+                        <label><input type="radio" name="q2" value="d"> Forward it to all your colleagues to warn them</label>
+                    </div>
+                    <div id="result-2" class="result"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div id="question-3" class="question-container hidden">
+                    <h3>Question 3:</h3>
+                    <p>How can you verify if a link in an email is safe?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="a"> Click it and see if it looks legitimate</label>
+                        <label><input type="radio" name="q3" value="b"> Check the email sender's profile picture</label>
+                        <label><input type="radio" name="q3" value="c"> Hover over the link to preview the URL without clicking</label>
+                        <label><input type="radio" name="q3" value="d"> Trust that your email filter caught all dangerous links</label>
+                    </div>
+                    <div id="result-3" class="result"></div>
+                </div>
+
+                <button id="submit-q1" class="btn" onclick="checkAnswer(1, 'b')">Submit Answer</button>
+                <button id="submit-q2" class="btn hidden" onclick="checkAnswer(2, 'c')">Submit Answer</button>
+                <button id="submit-q3" class="btn hidden" onclick="checkAnswer(3, 'c')">Submit Answer</button>
+                <button id="complete-training" class="btn hidden" onclick="completeTraining()">Complete Training</button>
+            </div>
+
+            <!-- Completion Certificate -->
+            <div id="completion" class="hidden">
+                <div class="completion-certificate">
+                    <h2>Certificate of Completion</h2>
+                    <p>This certifies that</p>
+                    <h3 id="certificate-name">[Employee Name]</h3>
+                    <p>has successfully completed the</p>
+                    <h3>Phishing Awareness Training</h3>
+                    <p>Date: <span id="cert-date"></span></p>
+                </div>
+                
+                <div class="module-section section-3" style="margin-top: 30px;">
+                    <h2>Verify Your Training Completion</h2>
+                    <p>Please take the following steps to confirm you've completed this security training:</p>
+                    <ol>
+                        <li><strong>Take a screenshot</strong> of your certificate above</li>
+                        <li><strong>Send the screenshot</strong> to <a href="mailto:security@itsolutions.com">security@itsolutions.com</a> with the subject line "Phishing Training Completion"</li>
+                        <li>Include your department and employee ID in the email</li>
+                    </ol>
+                    <p>This verification helps our IT Security team track training compliance and ensures you receive credit for completing this security awareness module.</p>
+                </div>
+                
+                <p>Thank you for completing this training module. Remember to stay vigilant and report any suspicious emails to IT Security.</p>
+                <a href="#" class="btn" onclick="window.close()">Exit Training</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>This training module is part of our ongoing security awareness program.</p>
+            <p>© 2025 ITSolutions - IT Security Department</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current date for certificate
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('cert-date').textContent = today.toLocaleDateString(undefined, options);
+
+        // Track progress
+        let currentProgress = 0;
+        const totalSections = 6; // name input, intro, 3 sections, quiz
+        let employeeName = "";
+        
+        // Start training after name input
+        function startTraining() {
+            employeeName = document.getElementById('employee-name').value.trim();
+            if (!employeeName) {
+                alert("Please enter your name to continue.");
+                return;
+            }
+            
+            document.getElementById('section-name').classList.add('hidden');
+            document.getElementById('section-intro').classList.remove('hidden');
+            currentProgress++;
+            updateProgressBar();
+        }
+        
+        // Navigation between sections
+        function nextSection(currentId, nextId) {
+            document.getElementById(currentId).classList.add('hidden');
+            document.getElementById(nextId).classList.remove('hidden');
+            currentProgress++;
+            updateProgressBar();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Update progress bar
+        function updateProgressBar() {
+            const progressPercentage = (currentProgress / totalSections) * 100;
+            document.getElementById('progress-bar').style.width = progressPercentage + '%';
+        }
+        
+        // Quiz functionality
+        function checkAnswer(questionNum, correctAnswer) {
+            const selectedAnswer = document.querySelector(`input[name="q${questionNum}"]:checked`);
+            const resultElement = document.getElementById(`result-${questionNum}`);
+            
+            if (!selectedAnswer) {
+                alert("Please select an answer.");
+                return;
+            }
+            
+            if (selectedAnswer.value === correctAnswer) {
+                // Correct answer explanations
+                if (questionNum === 1) {
+                    resultElement.innerHTML = "<strong>Correct!</strong> An urgent request to verify account credentials is a classic phishing tactic. Legitimate organisations rarely ask you to verify credentials via email, especially with urgency.";
+                } else if (questionNum === 2) {
+                    resultElement.innerHTML = "<strong>Correct!</strong> The proper procedure is to report suspicious emails to IT Security and delete them. Never reply to suspicious emails or forward them to colleagues.";
+                } else if (questionNum === 3) {
+                    resultElement.innerHTML = "<strong>Correct!</strong> Hovering over links shows you the actual URL destination without clicking, which is the safest way to check where a link will take you.";
+                }
+                resultElement.className = "result correct";
+                
+                // Show result
+                resultElement.style.display = "block";
+                
+                // Hide current submit button
+                document.getElementById(`submit-q${questionNum}`).classList.add('hidden');
+                
+                // Show next question or complete button
+                if (questionNum < 3) {
+                    document.getElementById(`question-${questionNum + 1}`).classList.remove('hidden');
+                    document.getElementById(`submit-q${questionNum + 1}`).classList.remove('hidden');
+                } else {
+                    document.getElementById('complete-training').classList.remove('hidden');
+                }
+            } else {
+                // Explanations for incorrect answers
+                if (questionNum === 1) {
+                    if (selectedAnswer.value === "a") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> An email from your manager using your full name is typically not a red flag. Phishing emails often use generic greetings rather than your name. Try another option.";
+                    } else if (selectedAnswer.value === "c") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> A company newsletter sent to all employees is a normal business communication and not typically a red flag. Think about which option might be unusual.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> A scheduled meeting invitation from a colleague is normal business communication. Consider which option might involve sensitive information.";
+                    }
+                } else if (questionNum === 2) {
+                    if (selectedAnswer.value === "a") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Replying to a suspicious email can confirm to attackers that your email address is active, potentially leading to more phishing attempts. Try another approach.";
+                    } else if (selectedAnswer.value === "b") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking links in suspicious emails can be dangerous even if you don't enter information. Links can lead to malware downloads or tracking. Consider a safer option.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Forwarding suspicious emails to colleagues can spread potential threats and create confusion. Think about who should really handle suspicious emails.";
+                    }
+                } else if (questionNum === 3) {
+                    if (selectedAnswer.value === "a") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking a link to see if it looks legitimate is dangerous; by then, malware could already be downloaded or your visit tracked. Look for a safer method to verify links.";
+                    } else if (selectedAnswer.value === "b") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Email sender profile pictures can be easily spoofed and don't verify the legitimacy of links. Consider what would tell you where a link actually goes.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Email filters aren't perfect and can miss dangerous content. Never assume all dangerous links have been caught. What could you do yourself to check a link?";
+                    }
+                }
+                resultElement.className = "result incorrect";
+                resultElement.style.display = "block";
+            }
+        }
+        
+        // Complete training
+        function completeTraining() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('completion').classList.remove('hidden');
+            
+            // Set employee name in certificate
+            if (employeeName) {
+                document.getElementById('certificate-name').textContent = employeeName;
+            }
+            
+            currentProgress++;
+            updateProgressBar();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
