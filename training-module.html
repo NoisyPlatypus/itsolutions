@@ -147,7 +147,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="main-logo.png" alt="ITSolutions Logo" class="logo">
+            <img src="main-logo.png" class="logo">
             <h1>Phishing Awareness Training</h1>
             <p>This short training module will help you identify and avoid phishing attempts.</p>
             <div class="progress-container">
@@ -395,4 +395,50 @@
                 // Explanations for incorrect answers
                 if (questionNum === 1) {
                     if (selectedAnswer.value === "a") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> An email from your manager using your full name is typically not a red flag. Phishing emails often use generic greetings rather than your
+                        resultElement.innerHTML = "<strong>Not quite.</strong> An email from your manager using your full name is typically not a red flag. Phishing emails often use generic greetings rather than your name. Try another option.";
+                    } else if (selectedAnswer.value === "c") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> A company newsletter sent to all employees is a normal business communication and not typically a red flag. Think about which option might be unusual.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> A scheduled meeting invitation from a colleague is normal business communication. Consider which option might involve sensitive information.";
+                    }
+                } else if (questionNum === 2) {
+                    if (selectedAnswer.value === "a") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Replying to a suspicious email can confirm to attackers that your email address is active, potentially leading to more phishing attempts. Try another approach.";
+                    } else if (selectedAnswer.value === "b") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking links in suspicious emails can be dangerous even if you don't enter information. Links can lead to malware downloads or tracking. Consider a safer option.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Forwarding suspicious emails to colleagues can spread potential threats and create confusion. Think about who should really handle suspicious emails.";
+                    }
+                } else if (questionNum === 3) {
+                    if (selectedAnswer.value === "a") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking a link to see if it looks legitimate is dangerous; by then, malware could already be downloaded or your visit tracked. Look for a safer method to verify links.";
+                    } else if (selectedAnswer.value === "b") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Email sender profile pictures can be easily spoofed and don't verify the legitimacy of links. Consider what would tell you where a link actually goes.";
+                    } else if (selectedAnswer.value === "d") {
+                        resultElement.innerHTML = "<strong>Not quite.</strong> Email filters aren't perfect and can miss dangerous content. Never assume all dangerous links have been caught. What could you do yourself to check a link?";
+                    }
+                }
+                resultElement.className = "result incorrect";
+                resultElement.style.display = "block";
+            }
+        }
+        
+        // Complete training
+        function completeTraining() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('completion').classList.remove('hidden');
+            
+            // Set employee name in certificate
+            if (employeeName) {
+                document.getElementById('certificate-name').textContent = employeeName;
+            }
+            
+            currentProgress++;
+            updateProgressBar();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
