@@ -149,7 +149,7 @@
         <header>
             <img src="main-logo.png" alt="ITSolutions Logo" class="logo">
             <h1>Phishing Awareness Training</h1>
-            <p>This short training module will help you spot and avoid falling victim to phishing attempts.</p>
+            <p>This short training module will help you identify and avoid phishing attempts.</p>
             <div class="progress-container">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
@@ -190,7 +190,7 @@
                     <li><strong>Generic greetings</strong> - "Dear User" instead of your name</li>
                     <li><strong>Suspicious sender email</strong> - Addresses that mimic legitimate companies but with slight variations</li>
                     <li><strong>Grammar and spelling errors</strong> - Professional organisations typically proofread communications</li>
-                    <li><strong>Suspicious links</strong> - URLs that don't match the claimed organisation apparently represented</li>
+                    <li><strong>Suspicious links</strong> - URLs that don't match the claimed organisation</li>
                     <li><strong>Unexpected attachments</strong> - Especially executable files (.exe, .zip, etc.)</li>
                     <li><strong>Requests for sensitive information</strong> - Legitimate organisations rarely ask for passwords via email</li>
                 </ul>
@@ -204,7 +204,7 @@
                 <ul>
                     <li><strong>Verify the sender</strong> - Check the full email address, not just the display name</li>
                     <li><strong>Hover before clicking</strong> - Place your cursor over links to see the actual URL destination</li>
-                    <li><strong>Be skeptical of urgency</strong> - Take time to verify requests that demand immediate action</li>
+                    <li><strong>Be sceptical of urgency</strong> - Take time to verify requests that demand immediate action</li>
                     <li><strong>Check for personalisation</strong> - Legitimate communications usually include your name</li>
                     <li><strong>Use multi-factor authentication</strong> - This provides an extra layer of protection</li>
                     <li><strong>Update your software</strong> - Keep your systems and security software up-to-date</li>
@@ -219,7 +219,7 @@
                 <p>If you receive a suspicious email, follow these steps:</p>
                 <ol>
                     <li><strong>Don't click on links or download attachments</strong></li>
-                    <li><strong>Report the email</strong> to the IT Security team at security@itsolutions.com</li>
+                    <li><strong>Report the email</strong> to the IT Security team at security@[your-actual-domain].com</li>
                     <li><strong>Delete the email</strong> from your inbox</li>
                     <li><strong>If you've already clicked a link or shared information:</strong>
                         <ul>
@@ -298,7 +298,7 @@
                     <p>Please take the following steps to confirm you've completed this security training:</p>
                     <ol>
                         <li><strong>Take a screenshot</strong> of your certificate above</li>
-                        <li><strong>Send the screenshot</strong> to <a href="mailto:security@itsolutions.com">security@itsolutions.com</a> with the subject line "Phishing Training Completion"</li>
+                        <li><strong>Send the screenshot</strong> to <a href="mailto:security@holmesglen.edu.au">security@holmesglen.edu.au</a> with the subject line "Phishing Training Completion"</li>
                         <li>Include your department and employee ID in the email</li>
                     </ol>
                     <p>This verification helps our IT Security team track training compliance and ensures you receive credit for completing this security awareness module.</p>
@@ -311,7 +311,7 @@
 
         <footer>
             <p>This training module is part of our ongoing security awareness program.</p>
-            <p>© 2025 ITSolutions - IT Security Department</p>
+            <p>© 2025 Holmesglen Institute - IT Security Department</p>
         </footer>
     </div>
 
@@ -395,50 +395,4 @@
                 // Explanations for incorrect answers
                 if (questionNum === 1) {
                     if (selectedAnswer.value === "a") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> An email from your manager using your full name is typically not a red flag. Phishing emails often use generic greetings rather than your name. Try another option.";
-                    } else if (selectedAnswer.value === "c") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> A company newsletter sent to all employees is a normal business communication and not typically a red flag. Think about which option might be unusual.";
-                    } else if (selectedAnswer.value === "d") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> A scheduled meeting invitation from a colleague is normal business communication. Consider which option might involve sensitive information.";
-                    }
-                } else if (questionNum === 2) {
-                    if (selectedAnswer.value === "a") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Replying to a suspicious email can confirm to attackers that your email address is active, potentially leading to more phishing attempts. Try another approach.";
-                    } else if (selectedAnswer.value === "b") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking links in suspicious emails can be dangerous even if you don't enter information. Links can lead to malware downloads or tracking. Consider a safer option.";
-                    } else if (selectedAnswer.value === "d") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Forwarding suspicious emails to colleagues can spread potential threats and create confusion. Think about who should really handle suspicious emails.";
-                    }
-                } else if (questionNum === 3) {
-                    if (selectedAnswer.value === "a") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Clicking a link to see if it looks legitimate is dangerous; by then, malware could already be downloaded or your visit tracked. Look for a safer method to verify links.";
-                    } else if (selectedAnswer.value === "b") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Email sender profile pictures can be easily spoofed and don't verify the legitimacy of links. Consider what would tell you where a link actually goes.";
-                    } else if (selectedAnswer.value === "d") {
-                        resultElement.innerHTML = "<strong>Not quite.</strong> Email filters aren't perfect and can miss dangerous content. Never assume all dangerous links have been caught. What could you do yourself to check a link?";
-                    }
-                }
-                resultElement.className = "result incorrect";
-                resultElement.style.display = "block";
-            }
-        }
-        
-        // Complete training
-        function completeTraining() {
-            document.getElementById('quiz').classList.add('hidden');
-            document.getElementById('completion').classList.remove('hidden');
-            
-            // Set employee name in certificate
-            if (employeeName) {
-                document.getElementById('certificate-name').textContent = employeeName;
-            }
-            
-            currentProgress++;
-            updateProgressBar();
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+                        resultElement.innerHTML = "<strong>Not quite.</strong> An email from your manager using your full name is typically not a red flag. Phishing emails often use generic greetings rather than your
