@@ -1,3 +1,10 @@
+"Live" Web pages:
+	Educational page: https://noisyplatypus.github.io/itsolutions/index.html
+	Landing Page: https://noisyplatypus.github.io/itsolutions/landing-page.html
+	Training Module: https://noisyplatypus.github.io/itsolutions/training-module.html
+ 	Training Module: https://noisyplatypus.github.io/itsolutions/email-template.html
+
+
 # Phishing Campaign Simulation Setup Guide
 
 This guide will walk you through setting up a complete phishing simulation campaign using GoPhish and MailHog on a Kali Linux virtual machine. This is part of our cybersecurity project assignment.
