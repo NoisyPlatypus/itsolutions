@@ -1,5 +1,6 @@
 "Live" Web pages:
-	Educational page: https://noisyplatypus.github.io/itsolutions/index.html
+	
+ 	Educational page: https://noisyplatypus.github.io/itsolutions/index.html
 	Landing Page: https://noisyplatypus.github.io/itsolutions/landing-page.html
 	Training Module: https://noisyplatypus.github.io/itsolutions/training-module.html
  	Training Module: https://noisyplatypus.github.io/itsolutions/email-template.html
